@@ -16,6 +16,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.8.2",
             'org.assertj:assertj-core:3.22.0',
             'com.codeborne:xls-test:1.4.0',
+            'jaxen:jaxen:1.1.1',
             'com.opencsv:opencsv:5.6'
     )
 

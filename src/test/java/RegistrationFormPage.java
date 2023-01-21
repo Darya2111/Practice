@@ -1,62 +1,59 @@
-import com.codeborne.selenide.SelenideElement;
-
-import javax.swing.text.html.parser.Element;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
-    public void openPage(){
+    DateComponent calendar = new DateComponent();
+    AddressComponent address = new AddressComponent();
+    public RegistrationFormPage openPage(){
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
+        return this;
     }
-    public void setFirstName(String value){
+    public RegistrationFormPage setFirstName(String value){
         $("#firstName").setValue(value);
+        return this;
     }
-    public void setLastName(String value){
+    public RegistrationFormPage setLastName(String value){
         $("#lastName").setValue(value);
+        return this;
     }
-    public void setEmail(String value){
+    public RegistrationFormPage setEmail(String value){
         $("#userEmail").setValue(value);
+        return this;
     }
-    public void setGender(String value){
+    public RegistrationFormPage setGender(String value){
         $("#gender-radio-2").parent().click();
+        return this;
     }
-    public void setMobile (String value){
+    public RegistrationFormPage setMobile (String value){
         $("#userNumber").setValue(value);
+        return this;
     }
 
-    public void setDateBirth (String value){
-        $("#dateOfBirthInput").click();}
-    public void setMonthOfBirth (String value){
-        $(".react-datepicker__month-select").selectOption(value);}
-    public void setYearOfBirth (String value){
-
-        $(".react-datepicker__year-select").selectOption(value);}
-    public void setDayOfBirth (String value){
-
+    public RegistrationFormPage setDateBirth (String year, String month, String day){
+        $("#dateOfBirthInput").click();
+        calendar.setDate(year, month, day);
+        return this;
     }
-    public void setSubject (String value){
+
+    public RegistrationFormPage setSubject (String value){
         $("#subjectsInput").setValue(value).pressEnter();
+        return this;
     }
-    public void setHobbie (String value){
+    public RegistrationFormPage setHobbie (String value){
         $("#hobbies-checkbox-2").parent().click();
+        return this;
     }
-    public void setCurrentAdress (String value){
+    public RegistrationFormPage setCurrentAddress (String value){
         $("#currentAddress").setValue(value);
+        return this;
     }
-    public void setState (String value){
+    public RegistrationFormPage setStateAndCity (String state, String city){
         $("#state").click();
+        address.setStateAndCity(state, city);
+        return this;
     }
-    public void setState2 (String value){
-        $("#stateCity-wrapper").selectOption(value);
-    }
-    public void setCity (String value){
-        $("#city").click();}
-    public void setCity2 (String value){
-        $("#stateCity-wrapper").selectOption(value);
-    }
+
 }
