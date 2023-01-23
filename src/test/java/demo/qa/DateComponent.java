@@ -1,3 +1,5 @@
+package demo.qa;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class DateComponent {

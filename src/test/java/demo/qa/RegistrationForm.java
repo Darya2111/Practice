@@ -1,5 +1,8 @@
+package demo.qa;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import demo.qa.CheckoutPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
