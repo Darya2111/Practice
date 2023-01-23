@@ -1,14 +1,17 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+
 
 public class RegistrationForm {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    CheckoutPage checkoutPage = new CheckoutPage();
     @BeforeAll
     static void setUp() {
+        // тут можно поменять браузер
+        Configuration.browser = "chrome";
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
@@ -16,22 +19,35 @@ public class RegistrationForm {
     @Test
     void fillFormTest() {
         registrationFormPage.openPage()
-                            .setFirstName("Ivan")
-                            .setLastName("Ivanov")
-                            .setEmail("Ivanov@mail.com")
+                            .setFirstName("Hanna")
+                            .setLastName("Ivanova")
+                            .setEmail("Ivanova@mail.com")
                             .setGender("Female")
-                            .setMobile("123456")
+                            .setMobile("1234567890")
                             .setDateBirth("1998", "November", "21")
                             .setSubject("Math")
-                            .setHobbie("Reading");
+                            .setHobbie("Reading")
+                            .uploadFile()
+                            .setCurrentAddress("Address 123")
+                            .setState("NCR")
+                            .setCity("Delhi")
+                            .clickSubmit();
 
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        checkoutPage.shouldHaveTitle("Thanks for submitting the form")
+                    .shouldHaveStudentName("Hanna Ivanova")
+                    .shouldHaveStudentEmail("Ivanova@mail.com")
+                    .shouldHaveGender("Female")
+                    .shouldHaveMobile("1234567890")
+                    .shouldHaveDateOfBirth("Date of Birth 21 November,1998")
+                    .shouldHaveSubject("Math")
+                    .shouldHaveHobbi("Reading")
+                    .shouldHaveAddress("Address 123")
+                    .shouldHaveStateAndCity("NCR Delhi");
 
-        registrationFormPage.setCurrentAddress("Address 123")
-                            .setStateAndCity("NCR", "Delhi");
-        $("#submit").click();
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Ivan Ivanov"));
 
+    }
+    @AfterAll
+    static void tearDown(){
+        Selenide.closeWebDriver();
     }
 }

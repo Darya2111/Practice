@@ -50,10 +50,22 @@ public class RegistrationFormPage {
         $("#currentAddress").setValue(value);
         return this;
     }
-    public RegistrationFormPage setStateAndCity (String state, String city){
+    public RegistrationFormPage setState (String value){
         $("#state").click();
-        address.setStateAndCity(state, city);
+        address.setState(value);
         return this;
     }
-
+    public RegistrationFormPage setCity (String value){
+        $("#city").click();
+        address.setCity(value);
+        return this;
+    }
+    public RegistrationFormPage uploadFile(){
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
+        return this;
+    }
+    public RegistrationFormPage clickSubmit(){
+        $("#submit").click();
+        return this;
+    }
 }

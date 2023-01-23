@@ -1,9 +1,14 @@
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AddressComponent {
-    public void setStateAndCity(String state, String city) {
-        $(".css-yk16xz-control").selectOption(state);
-        $(".css-yk16xz-control").selectOption(city);
+    public void setState(String value) {
+        $(byText("NCR")).click();
+    }
+    public void setCity(String value) {
+        $(byText("Delhi")).click();
     }
 }
 
