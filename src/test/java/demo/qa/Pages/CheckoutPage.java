@@ -1,13 +1,15 @@
-package demo.qa;
+package demo.qa.Pages;
+
+import com.codeborne.selenide.Condition;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutPage {
-    public CheckoutPage shouldHaveTitle (String value){
-        $("#example-modal-sizes-title-lg").shouldHave(text(value));
-        return this;
+
+    public boolean IsTitleContains (String value){
+        return $("#example-modal-sizes-title-lg").has(Condition.text(value));
     }
     public CheckoutPage shouldHaveStudentName (String value){
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(value));

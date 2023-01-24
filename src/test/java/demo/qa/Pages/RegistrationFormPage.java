@@ -1,4 +1,4 @@
-package demo.qa;
+package demo.qa.Pages;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -6,9 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationFormPage {
     DateComponent calendar = new DateComponent();
     AddressComponent address = new AddressComponent();
-    public RegistrationFormPage openPage(){
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+    public RegistrationFormPage deleteBanAndFooter(){
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         return this;

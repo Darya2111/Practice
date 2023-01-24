@@ -1,4 +1,4 @@
-package demo.qa;
+package demo.qa.Pages;
 
 import static com.codeborne.selenide.Selenide.$;
 
