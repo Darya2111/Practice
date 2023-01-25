@@ -30,8 +30,10 @@ public class BaseTest {
             email = faker.internet().emailAddress(),
             currentAddress = faker.rickAndMorty().quote();
 
-    @AfterEach
-    void tearDown(){
-        Selenide.closeWebDriver();
-    }
+
+
+ //   @AfterEach
+ //   void tearDown(){
+  //      Selenide.closeWebDriver();
+   // }
 }

@@ -20,7 +20,7 @@ public class RegistrationForm extends BaseTest{
                             .setEmail(email)
                 // я хз как эти штуки сделать рандомными (((
                             .setGender("Female")
-                            .setMobile("1234567890")
+                            .setMobile("134567890")
                             .setDateBirth("1998", "November", "21")
                             .setSubject("Math")
                             .setHobbie("Reading")
@@ -31,6 +31,8 @@ public class RegistrationForm extends BaseTest{
                             .clickSubmit();
 
         // такая форма проверки дает развернутый ответ
+
+        // при проверке ошибка, данные не совпадают(
 
         assertThat("Title не совпадает",checkoutPage.IsTitleContains("Thanks for submitting the form"));
         assertThat("Name не совпадает",checkoutPage.IsStudentName(firstName));
