@@ -1,6 +1,8 @@
 package demo.qa.Pages;
 
-import static com.codeborne.selenide.Condition.text;
+import demo.qa.Components.AddressComponent;
+import demo.qa.Components.DateComponent;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
@@ -50,7 +52,7 @@ public class RegistrationFormPage {
         $("#currentAddress").setValue(value);
         return this;
     }
-    public RegistrationFormPage setState (String value){
+    public RegistrationFormPage setState (String value)  {
         $("#state").click();
         address.setState(value);
         return this;

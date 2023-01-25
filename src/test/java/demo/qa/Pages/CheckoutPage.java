@@ -1,6 +1,7 @@
 package demo.qa.Pages;
 
 import com.codeborne.selenide.Condition;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -8,44 +9,40 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CheckoutPage {
 
+    // по идее с помощью этого я могла бы обращаться к локатору, но что-то не получается (
+    private By element = By.className("table-responsive");
+
+
     public boolean IsTitleContains (String value){
         return $("#example-modal-sizes-title-lg").has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveStudentName (String value){
-        $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsStudentName (String value){
+        return $("Student Name").parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveStudentEmail (String value){
-        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsStudentEmail (String value){
+        return $(byText("Student Email")).parent().has(text(value));
     }
-    public CheckoutPage shouldHaveGender (String value){
-        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsGender (String value){
+       return $(".table-responsive").$(byText("Gender")).parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveMobile (String value){
-        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsMobile (String value){
+        return $(".table-responsive").$(byText("Mobile")).parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveDateOfBirth (String value){
-        $(".table-responsive").$(byText("Date of Birth"))
-                .parent().shouldHave(text(value));
-        return this;
+    public boolean IsDateOfBirth (String value){
+        return $(".table-responsive").$(byText("Date of Birth"))
+                .parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveSubject (String value){
-        $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsSubject (String value){
+        return $(".table-responsive").$(byText("Subjects")).parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveHobbi (String value){
-        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsHobbie (String value){
+        return $(".table-responsive").$(byText("Hobbies")).parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveAddress (String value) {
-        $(".table-responsive").$(byText("Address")).parent().shouldHave(text(value));
-        return this;
+    public boolean IsAddress (String value) {
+        return $(".table-responsive").$(byText("Address")).parent().has(Condition.text(value));
     }
-    public CheckoutPage shouldHaveStateAndCity(String value){
-            $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(value));
-            return this;
+    public boolean IsStateAndCity(String value){
+            return $(".table-responsive").$(byText("State and City")).parent().has(Condition.text(value));
     }
+
 }

@@ -14,6 +14,9 @@ dependencies {
             "org.slf4j:slf4j-simple:1.7.36",
             // JUnit 5
             "org.junit.jupiter:junit-jupiter:5.8.2",
+
+            'org.aeonbits.owner:owner:1.0.4',
+            'com.github.javafaker:javafaker:1.0.2',
             'org.assertj:assertj-core:3.22.0',
             'com.codeborne:xls-test:1.4.0',
             'jaxen:jaxen:1.1.1',
