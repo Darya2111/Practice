@@ -15,6 +15,7 @@ public class BaseTest {
     static void setUp() {
         // тут можно поменять браузер
         Configuration.browser = "chrome";
+        Configuration.pageLoadTimeout=80000;
         Configuration.baseUrl = "https://store.steampowered.com/";
         Configuration.browserSize = "1920x1080";
         open("https://store.steampowered.com/");
