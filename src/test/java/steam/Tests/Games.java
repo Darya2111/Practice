@@ -25,7 +25,7 @@ public class Games extends BaseTest {
             price.add(Integer.parseInt(data));
         }
         // наша проверка
-        for (int i = 4; i < price.size()-1; i++) {
+        for (int i = 3; i < price.size()-1; i++) {
             if (price.get(i) > price.get(i + 1)) {
                 System.out.println("Фильтрация неверная");
                 break;
